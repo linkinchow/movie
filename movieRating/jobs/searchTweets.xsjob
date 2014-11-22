@@ -1,0 +1,10 @@
+{
+    "description": "Search tweets",
+    "action": "movieRating.services:searchTweets.xsjs::searchTweets",
+    "schedules": [
+       {
+          "description": "every 2 minutes",
+          "xscron": "* * * * * */2 0"
+       }
+    ]
+}

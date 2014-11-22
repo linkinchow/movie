@@ -1,0 +1,378 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+
+<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+<title>Movie Sentiment Rating based on SINA</title>
+
+<!-- CSS: implied media="all" -->
+<!-- CSS concatenated and minified via ant build script-->
+<link rel="stylesheet" type="text/css" href="search.css">
+<!-- end CSS-->
+<link rel="shortcut icon" href="img/favicon.png" />
+
+<script data-main="/sap/bc/ina/uitoolkit/js/main.js" src="/sap/bc/ina/uitoolkit/js/lib/require.js"></script>
+
+<script>
+requirejs(['server/createFulltextIndex.js'], function   () {
+
+});
+</script>
+
+<!-- create fulltext index -->
+<!-- <script src="server/createFulltextIndex.js"></script> -->
+
+</head>
+
+<body>
+
+    <header>
+        <div data-sap-widget="header" data-title="Movie Sentiment Rating based on SINA" data-helphref="http://help.sap.com/hana/SAP_HANA_INA_Search_JavaScript_Reference_en/index.html"></div>
+    </header>
+
+    <div class="background">
+    <div data-sap-widget="alert"></div>
+
+   <div data-sap-widget="workarea" data-entityset="AT_TWEETS" data-packagename="movieRating.models" data-aggregationdimension="id_counter">
+
+   		<div class="searchnfilterframe">
+   			<div data-useresponseattributes="false" data-usedimensions="true" data-sap-widget="searchnfilter"></div>
+   		</div>
+
+        <div class="facetPaneShadow">
+          <div class="facetPane">
+
+            <div class="facetColumn" data-children-drag-handle="header">
+
+                <div data-sap-widget="workareaitem" data-title="Drop here" data-target-position="0"></div>
+
+                <div data-sap-widget="workareaitem" data-title="Drop here" data-target-position="1"></div>
+
+                <div data-sap-widget="workareaitem" data-title="Drop here" data-target-position="2"></div>
+
+            </div><!-- end of the facetColumn" -->
+          </div> <!--  end of facetPane -->
+        </div> <!--  end of facetPaneShadow -->
+        
+        <div class="facetPaneShadow">
+          <div class="facetPane">
+
+            <div class="facetColumn" data-children-drag-handle="header">
+
+                <div data-sap-widget="workareaitem" data-title="Drop here" data-target-position="3"></div>
+
+                <div data-sap-widget="workareaitem" data-title="Drop here" data-target-position="4"></div>
+
+                <div data-sap-widget="workareaitem" data-title="Drop here" data-target-position="5"></div>
+
+            </div><!-- end of the facetColumn" -->
+          </div> <!--  end of facetPane -->
+        </div> <!--  end of facetPaneShadow -->
+
+        <div class="contentPaneShadow">
+            <div class="contentPane" data-children-drag-handle="header">
+                <!-- The following div is a placeholder that will be replaced on the first time a workarea-centerable will be centered. -->
+                <div data-sap-widget="workareaitem" data-iscenter="true" data-title="Drop here" data-target-position="6"></div>
+            </div>
+        </div>
+
+        <div data-sap-widget="facetrepository" data-children-drag-handle="body">
+        
+        		<div data-sap-widget="workareaitem" data-title="SENTIMENT BY MOVIE" data-source-position="0">
+                        <div data-sap-widget="switchbox" data-activeindex="0">
+
+                            <a href="javascript: void(0);" class="iconTimeline">Timeline</a>
+                            <div data-sap-widget="chart" data-dimension-line="sentiment" data-dimension-x="title" data-dimension-y="$$Count$$" data-charttype="line" data-color="colored" data-toplarge=10 data-maxlabelnum="all"></div>
+
+                            <a href="javascript:void(0)" class="iconGroupBarChartVertical">Goup Bar Chart</a>
+                            <div data-sap-widget="chart" data-toplarge="25" data-topsmall="5" data-title="SENT-MOVIE-GROUPBAR" data-dimension-line="title" data-dimension-x="sentiment" data-dimension-y="$$Count$$" data-charttype="groupbar"></div>
+
+                        </div>
+                </div>
+        
+        		<div data-sap-widget="workareaitem" data-title="SENTIMENT" data-source-position="1">
+                    <div data-sap-widget="switchbox" data-activeindex="1">
+
+                        <a href="javascript:void(0)" class="iconBarChartHorizontal">Bar Chart</a>
+                        <div data-sap-widget="chart" data-toplarge="25" data-title="SENTIMENT-BAR" data-dimension="sentiment" data-charttype="bar" data-color="green"></div>
+
+                        <a href="javascript:void(0)" class="iconPieChart">Pie Chart</a>
+                        <div data-sap-widget="chart" data-title="SENTIMENT-PIE" data-dimension="sentiment" data-charttype="pie" data-color="#F0AB00"></div>
+
+                        <a href="javascript:void(0)" class="iconCorrelation">Tagcloud</a>
+                        <div data-sap-widget="chart" data-topsmall="8" data-toplarge="25" data-title="SENTIMENT-TAG" data-dimension="sentiment" data-charttype="tagcloud"></div>
+
+                    </div>
+                </div>
+                
+                <div data-sap-widget="workareaitem" data-title="TWEET SOURCE" data-source-position="2">
+                    <div data-sap-widget="switchbox" data-activeindex="0">
+
+                        <a href="javascript:void(0)" class="iconBarChartHorizontal">Bar Chart</a>
+                        <div data-sap-widget="chart" data-toplarge="25" data-title="SOURCE-BAR" data-dimension="tweet_source" data-charttype="bar" data-color="green"></div>
+
+                        <a href="javascript:void(0)" class="iconPieChart">Pie Chart</a>
+                        <div data-sap-widget="chart" data-title="SOURCE-PIE" data-dimension="tweet_source" data-charttype="pie" data-color="#F0AB00"></div>
+
+                        <a href="javascript:void(0)" class="iconCorrelation">Tagcloud</a>
+                        <div data-sap-widget="chart" data-topsmall="8" data-toplarge="25" data-title="SOURCE-TAG" data-dimension="tweet_source" data-charttype="tagcloud"></div>
+
+                    </div>
+                </div>
+                
+                <div data-sap-widget="workareaitem" data-title="TITLE" data-source-position="3">
+                    <div data-sap-widget="switchbox" data-activeindex="2">
+
+                        <a href="javascript:void(0)" class="iconBarChartHorizontal">Bar Chart</a>
+                        <div data-sap-widget="chart" data-toplarge="25" data-title="TITLE-BAR" data-dimension="title" data-charttype="bar" data-color="green"></div>
+
+                        <a href="javascript:void(0)" class="iconPieChart">Pie Chart</a>
+                        <div data-sap-widget="chart" data-title="TITLE-PIE" data-dimension="title" data-charttype="pie" data-color="#F0AB00"></div>
+
+                        <a href="javascript:void(0)" class="iconCorrelation">Tagcloud</a>
+                        <div data-sap-widget="chart" data-topsmall="8" data-toplarge="25" data-title="TITLE-TAG" data-dimension="title" data-charttype="tagcloud"></div>
+
+                    </div>
+                </div>
+                
+                <div data-sap-widget="workareaitem" data-title="TOKEN" data-source-position="4">
+                    <div data-sap-widget="switchbox" data-activeindex="1">
+
+                        <a href="javascript:void(0)" class="iconBarChartHorizontal">Bar Chart</a>
+                        <div data-sap-widget="chart" data-toplarge="25" data-title="TOKEN-BAR" data-dimension="token" data-charttype="bar" data-color="green"></div>
+
+                        <a href="javascript:void(0)" class="iconPieChart">Pie Chart</a>
+                        <div data-sap-widget="chart" data-title="TOKEN-PIE" data-dimension="token" data-charttype="pie" data-color="#F0AB00"></div>
+
+                        <a href="javascript:void(0)" class="iconCorrelation">Tagcloud</a>
+                        <div data-sap-widget="chart" data-topsmall="8" data-toplarge="25" data-title="TOKEN-TAG" data-dimension="token" data-charttype="tagcloud"></div>
+
+                    </div>
+                </div>
+                
+                <div data-sap-widget="workareaitem" data-title="STUDIO" data-source-position="5">
+                    <div data-sap-widget="switchbox" data-activeindex="0">
+
+                        <a href="javascript:void(0)" class="iconBarChartHorizontal">Bar Chart</a>
+                        <div data-sap-widget="chart" data-toplarge="25" data-title="STUDIO-BAR" data-dimension="studio" data-charttype="bar" data-color="green"></div>
+
+                        <a href="javascript:void(0)" class="iconPieChart">Pie Chart</a>
+                        <div data-sap-widget="chart" data-title="STUDIO-PIE" data-dimension="studio" data-charttype="pie" data-color="#F0AB00"></div>
+
+                        <a href="javascript:void(0)" class="iconCorrelation">Tagcloud</a>
+                        <div data-sap-widget="chart" data-topsmall="8" data-toplarge="25" data-title="STUDIO-TAG" data-dimension="studio" data-charttype="tagcloud"></div>
+
+                    </div>
+                </div>
+                
+                <div data-sap-widget="workareaitem" data-title="TWEET BY YEAR">
+                    <div data-sap-widget="switchbox" data-activeindex="1">
+
+                        <a href="javascript:void(0)" class="iconBarChartHorizontal">Bar Chart</a>
+                        <div data-sap-widget="chart" data-toplarge="25" data-title="TWEET-YEAR-BAR" data-dimension="tweet_time_year" data-charttype="bar" data-color="green"></div>
+
+                        <a href="javascript:void(0)" class="iconPieChart">Pie Chart</a>
+                        <div data-sap-widget="chart" data-title="TWEET-YEAR-PIE" data-dimension="tweet_time_year" data-charttype="pie" data-color="#F0AB00"></div>
+
+                        <a href="javascript:void(0)" class="iconCorrelation">Tagcloud</a>
+                        <div data-sap-widget="chart" data-topsmall="8" data-toplarge="25" data-title="TWEET-YEAR-TAG" data-dimension="tweet_time_year" data-charttype="tagcloud"></div>
+
+                    </div>
+                </div>
+                
+                <div data-sap-widget="workareaitem" data-title="TWEET BY MONTH">
+                    <div data-sap-widget="switchbox" data-activeindex="1">
+
+                        <a href="javascript:void(0)" class="iconBarChartHorizontal">Bar Chart</a>
+                        <div data-sap-widget="chart" data-toplarge="25" data-title="TWEET-MONTH-BAR" data-dimension="tweet_time_month" data-charttype="bar" data-color="green"></div>
+
+                        <a href="javascript:void(0)" class="iconPieChart">Pie Chart</a>
+                        <div data-sap-widget="chart" data-title="TWEET-MONTH-PIE" data-dimension="tweet_time_month" data-charttype="pie" data-color="#F0AB00"></div>
+
+                        <a href="javascript:void(0)" class="iconCorrelation">Tagcloud</a>
+                        <div data-sap-widget="chart" data-topsmall="8" data-toplarge="25" data-title="TWEET-MONTH-TAG" data-dimension="tweet_time_month" data-charttype="tagcloud"></div>
+
+                    </div>
+                </div>
+                
+                <div data-sap-widget="workareaitem" data-title="TWEET BY DAY">
+                    <div data-sap-widget="switchbox" data-activeindex="1">
+
+                        <a href="javascript:void(0)" class="iconBarChartHorizontal">Bar Chart</a>
+                        <div data-sap-widget="chart" data-toplarge="25" data-title="TWEET-DAY-BAR" data-dimension="tweet_time_day" data-charttype="bar" data-color="green"></div>
+
+                        <a href="javascript:void(0)" class="iconPieChart">Pie Chart</a>
+                        <div data-sap-widget="chart" data-title="TWEET-DAY-PIE" data-dimension="tweet_time_day" data-charttype="pie" data-color="#F0AB00"></div>
+
+                        <a href="javascript:void(0)" class="iconCorrelation">Tagcloud</a>
+                        <div data-sap-widget="chart" data-topsmall="8" data-toplarge="25" data-title="TWEET-DAY-TAG" data-dimension="tweet_time_day" data-charttype="tagcloud"></div>
+
+                    </div>
+                </div>
+                
+                <div data-sap-widget="workareaitem" data-title="TWEET BY HOUR">
+                    <div data-sap-widget="switchbox" data-activeindex="1">
+
+                        <a href="javascript:void(0)" class="iconBarChartHorizontal">Bar Chart</a>
+                        <div data-sap-widget="chart" data-toplarge="25" data-title="TWEET-HOUR-BAR" data-dimension="tweet_time_hour" data-charttype="bar" data-color="green"></div>
+
+                        <a href="javascript:void(0)" class="iconPieChart">Pie Chart</a>
+                        <div data-sap-widget="chart" data-title="TWEET-HOUR-PIE" data-dimension="tweet_time_hour" data-charttype="pie" data-color="#F0AB00"></div>
+
+                        <a href="javascript:void(0)" class="iconCorrelation">Tagcloud</a>
+                        <div data-sap-widget="chart" data-topsmall="8" data-toplarge="25" data-title="TWEET-HOUR-TAG" data-dimension="tweet_time_hour" data-charttype="tagcloud"></div>
+
+                    </div>
+                </div>
+                
+                <div data-sap-widget="workareaitem" data-title="TWEET BY WEEK">
+                    <div data-sap-widget="switchbox" data-activeindex="1">
+
+                        <a href="javascript:void(0)" class="iconBarChartHorizontal">Bar Chart</a>
+                        <div data-sap-widget="chart" data-toplarge="25" data-title="TWEET-WEEK-BAR" data-dimension="tweet_time_week" data-charttype="bar" data-color="green"></div>
+
+                        <a href="javascript:void(0)" class="iconPieChart">Pie Chart</a>
+                        <div data-sap-widget="chart" data-title="TWEET-WEEK-PIE" data-dimension="tweet_time_week" data-charttype="pie" data-color="#F0AB00"></div>
+
+                        <a href="javascript:void(0)" class="iconCorrelation">Tagcloud</a>
+                        <div data-sap-widget="chart" data-topsmall="8" data-toplarge="25" data-title="TWEET-WEEK-TAG" data-dimension="tweet_time_week" data-charttype="tagcloud"></div>
+
+                    </div>
+                </div>
+                
+                <div data-sap-widget="workareaitem" data-title="MOVIE BY YEAR">
+                    <div data-sap-widget="switchbox" data-activeindex="1">
+
+                        <a href="javascript:void(0)" class="iconBarChartHorizontal">Bar Chart</a>
+                        <div data-sap-widget="chart" data-toplarge="25" data-title="MOVIE-YEAR-BAR" data-dimension="movie_year" data-charttype="bar" data-color="green"></div>
+
+                        <a href="javascript:void(0)" class="iconPieChart">Pie Chart</a>
+                        <div data-sap-widget="chart" data-title="MOVIE-YEAR-PIE" data-dimension="movie_year" data-charttype="pie" data-color="#F0AB00"></div>
+
+                        <a href="javascript:void(0)" class="iconCorrelation">Tagcloud</a>
+                        <div data-sap-widget="chart" data-topsmall="8" data-toplarge="25" data-title="MOVIE-YEAR-TAG" data-dimension="movie_year" data-charttype="tagcloud"></div>
+
+                    </div>
+                </div>
+                
+                <div data-sap-widget="workareaitem" data-title="MPAA RATING">
+                    <div data-sap-widget="switchbox" data-activeindex="1">
+
+                        <a href="javascript:void(0)" class="iconBarChartHorizontal">Bar Chart</a>
+                        <div data-sap-widget="chart" data-toplarge="25" data-title="MOVIE-MPAA-BAR" data-dimension="mpaa_rating" data-charttype="bar" data-color="green"></div>
+
+                        <a href="javascript:void(0)" class="iconPieChart">Pie Chart</a>
+                        <div data-sap-widget="chart" data-title="MOVIE-MPAA-PIE" data-dimension="mpaa_rating" data-charttype="pie" data-color="#F0AB00"></div>
+
+                        <a href="javascript:void(0)" class="iconCorrelation">Tagcloud</a>
+                        <div data-sap-widget="chart" data-topsmall="8" data-toplarge="25" data-title="MOVIE-MPAA-TAG" data-dimension="mpaa_rating" data-charttype="tagcloud"></div>
+
+                    </div>
+                </div>
+                
+                <div data-sap-widget="workareaitem" data-title="RELEASE DATE BY YEAR">
+                    <div data-sap-widget="switchbox" data-activeindex="1">
+
+                        <a href="javascript:void(0)" class="iconBarChartHorizontal">Bar Chart</a>
+                        <div data-sap-widget="chart" data-toplarge="25" data-title="RELEASE-YEAR-BAR" data-dimension="release_date_year" data-charttype="bar" data-color="green"></div>
+
+                        <a href="javascript:void(0)" class="iconPieChart">Pie Chart</a>
+                        <div data-sap-widget="chart" data-title="RELEASE-YEAR-PIE" data-dimension="release_date_year" data-charttype="pie" data-color="#F0AB00"></div>
+
+                        <a href="javascript:void(0)" class="iconCorrelation">Tagcloud</a>
+                        <div data-sap-widget="chart" data-topsmall="8" data-toplarge="25" data-title="RELEASE-YEAR-TAG" data-dimension="release_date_year" data-charttype="tagcloud"></div>
+
+                    </div>
+                </div>
+                
+                <div data-sap-widget="workareaitem" data-title="RELEASE DATE BY MONTH">
+                    <div data-sap-widget="switchbox" data-activeindex="1">
+
+                        <a href="javascript:void(0)" class="iconBarChartHorizontal">Bar Chart</a>
+                        <div data-sap-widget="chart" data-toplarge="25" data-title="RELEASE-MONTH-BAR" data-dimension="release_date_month" data-charttype="bar" data-color="green"></div>
+
+                        <a href="javascript:void(0)" class="iconPieChart">Pie Chart</a>
+                        <div data-sap-widget="chart" data-title="RELEASE-MONTH-PIE" data-dimension="release_date_month" data-charttype="pie" data-color="#F0AB00"></div>
+
+                        <a href="javascript:void(0)" class="iconCorrelation">Tagcloud</a>
+                        <div data-sap-widget="chart" data-topsmall="8" data-toplarge="25" data-title="RELEASE-MONTH-TAG" data-dimension="release_date_month" data-charttype="tagcloud"></div>
+
+                    </div>
+                </div>
+                
+                <div data-sap-widget="workareaitem" data-title="RELEASE DATE BY DAY">
+                    <div data-sap-widget="switchbox" data-activeindex="1">
+
+                        <a href="javascript:void(0)" class="iconBarChartHorizontal">Bar Chart</a>
+                        <div data-sap-widget="chart" data-toplarge="25" data-title="RELEASE-DAY-BAR" data-dimension="release_date_day" data-charttype="bar" data-color="green"></div>
+
+                        <a href="javascript:void(0)" class="iconPieChart">Pie Chart</a>
+                        <div data-sap-widget="chart" data-title="RELEASE-DAY-PIE" data-dimension="release_date_day" data-charttype="pie" data-color="#F0AB00"></div>
+
+                        <a href="javascript:void(0)" class="iconCorrelation">Tagcloud</a>
+                        <div data-sap-widget="chart" data-topsmall="8" data-toplarge="25" data-title="RELEASE-DAY-TAG" data-dimension="release_date_day" data-charttype="tagcloud"></div>
+
+                    </div>
+                </div>
+                
+                <div data-sap-widget="workareaitem" data-title="RELEASE DATE BY WEEK">
+                    <div data-sap-widget="switchbox" data-activeindex="1">
+
+                        <a href="javascript:void(0)" class="iconBarChartHorizontal">Bar Chart</a>
+                        <div data-sap-widget="chart" data-toplarge="25" data-title="RELEASE-WEEK-BAR" data-dimension="release_date_week" data-charttype="bar" data-color="green"></div>
+
+                        <a href="javascript:void(0)" class="iconPieChart">Pie Chart</a>
+                        <div data-sap-widget="chart" data-title="RELEASE-WEEK-PIE" data-dimension="release_date_week" data-charttype="pie" data-color="#F0AB00"></div>
+
+                        <a href="javascript:void(0)" class="iconCorrelation">Tagcloud</a>
+                        <div data-sap-widget="chart" data-topsmall="8" data-toplarge="25" data-title="RELEASE-WEEK-TAG" data-dimension="release_date_week" data-charttype="tagcloud"></div>
+
+                    </div>
+                </div>
+                
+                <div data-sap-widget="workareaitem" data-title="MENTION" data-source-position="6">
+                	<div data-sap-widget="switchbox" data-activeindex="0">
+	                    <!-- Optional data-sap-widget="resultlist" attributes:
+	                    - data-cutoverflowresults
+	                        ="false": resultlist shall show all results regardless the size if the resultlist container
+	                        ="true":  (default) show only so many results that they fit into the resultlist container
+	                    - data-maxresults
+	                        ="10": (default) number of results to be shown
+	                    - data-responseattributes
+	                        ="": (default) use default attributes of view/collection (HANA database) for ODATA response
+	                    - data-highlightterms
+	                        ="true": (default) search term is highlighted
+	                    -->
+	                    <!-- First switchbox item -->
+	                    <a href="javascript:void(0)" class="iconListView">Result List</a>
+	                    <div data-sap-widget="resultlist"
+	                    	 data-showheader="false"
+	                         data-maxresultslarge="8" data-maxresultssmall="3" data-responseattributes="user_screen_name,user_profile_image_url,title,movie_year,mpaa_rating,runtime,release_date,poster,studio,sent,created_at_str,tweet_source,source_url,token,sentiment,text_head,text_tail,created_at_time_str,poster_pro,synopsis"
+	                         data-detailwidth="650" data-detailheight="500"
+	                         data-highlightterms="true" data-highlightedattributes="title" data-highlightmaxlength="100" data-highlightstartposition="1"
+	                         data-snippetterms="false" data-snippetedattributes="title"
+	                         data-opendetailevent="click" data-showdetail="true"
+	                         data-orderby="created_at_str"
+	                         data-sortorder="DESC"
+	                         data-resulttemplate="templates/tweet.html"
+	                         data-resulttemplate-css="templates/tweet.css"
+	                         data-resulttemplate-small="templates/tweet_small.html"
+	                         data-resulttemplate-small-css="templates/tweet_small.css"
+	                         data-resulttemplate-detail="templates/tweet_detail.html"
+	                         data-resulttemplate-detail-css="templates/tweet_detail.css">
+	                    </div>
+                	</div>
+                </div>
+
+            </div>  <!-- end of facetrepository div -->
+
+    </div> <!-- end of workarea div -->
+
+    <div class="clear"></div>
+
+    </div> <!-- end of background div -->
+</body>
+</html>

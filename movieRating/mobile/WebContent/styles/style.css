@@ -1,0 +1,24 @@
+#content {
+	height: 99% ! important;
+}
+
+.score {
+	padding-top: 5px;
+}
+
+.title {
+	font-weight: bold;
+}
+
+.movieInfo {
+	margin-left: 10px;
+	margin-top: 5px;
+}
+
+.info {
+	margin-left: 5px;
+}
+
+.sapMPageWithHeader.sapMPageWithSubHeader>section {
+	top: 138px ! important;
+}

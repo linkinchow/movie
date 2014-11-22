@@ -1,0 +1,10 @@
+description = "rotten tomatoes api";
+host = "api.rottentomatoes.com";
+port = 80;
+pathPrefix = "/api/public/v1.0";
+useProxy = true;
+proxyHost = "<YOUR PROXY HOST>";
+proxyPort = <YOUR PROXY PORT>;
+authType = none;
+useSSL = false;
+timeout = 0;

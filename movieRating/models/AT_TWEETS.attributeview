@@ -1,0 +1,346 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Dimension:dimension xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:AccessControl="http://www.sap.com/ndb/SQLCoreModelAccessControl.ecore" xmlns:Dimension="http://www.sap.com/ndb/BiModelDimension.ecore" schemaVersion="1.2" id="AT_TWEETS" applyPrivilegeType="ANALYTIC_PRIVILEGE" checkAnalyticPrivileges="true" defaultClient="$$client$$" defaultLanguage="$$language$$" visibility="internal" dimensionType="Standard">
+  <descriptions defaultDescription="AT_TWEETS"/>
+  <attributes>
+    <attribute id="id" hidden="true" order="1" attributeHierarchyActive="false" displayAttribute="false" key="true">
+      <descriptions defaultDescription="id"/>
+      <keyMapping schemaName="MOVIE_RATING" columnObjectName="$TA_TWEETS_I" columnName="id"/>
+    </attribute>
+    <attribute id="TA_COUNTER" hidden="true" order="2" attributeHierarchyActive="false" displayAttribute="false" key="true">
+      <descriptions defaultDescription="TA_COUNTER"/>
+      <keyMapping schemaName="MOVIE_RATING" columnObjectName="$TA_TWEETS_I" columnName="TA_COUNTER"/>
+    </attribute>
+    <attribute id="token" order="3" attributeHierarchyActive="false" displayAttribute="false">
+      <descriptions defaultDescription="token"/>
+      <searchProperties>
+        <rankingWeight>0.9</rankingWeight>
+        <freestyleSearch>true</freestyleSearch>
+        <fuzzinessThreshold>0.0</fuzzinessThreshold>
+      </searchProperties>
+      <keyMapping schemaName="MOVIE_RATING" columnObjectName="$TA_TWEETS_I" columnName="TA_TOKEN"/>
+    </attribute>
+    <attribute id="sentiment" hidden="false" order="4" attributeHierarchyActive="false" displayAttribute="false">
+      <descriptions defaultDescription="sentiment"/>
+      <searchProperties>
+        <rankingWeight>0.9</rankingWeight>
+        <freestyleSearch>true</freestyleSearch>
+        <fuzzinessThreshold>0.0</fuzzinessThreshold>
+      </searchProperties>
+      <keyMapping schemaName="MOVIE_RATING" columnObjectName="$TA_TWEETS_I" columnName="TA_TYPE"/>
+    </attribute>
+    <attribute id="TA_OFFSET" hidden="true" order="5" attributeHierarchyActive="false" displayAttribute="false">
+      <descriptions defaultDescription="TA_OFFSET"/>
+      <keyMapping schemaName="MOVIE_RATING" columnObjectName="$TA_TWEETS_I" columnName="TA_OFFSET"/>
+    </attribute>
+    <attribute id="user_screen_name" order="6" attributeHierarchyActive="false" displayAttribute="false">
+      <descriptions defaultDescription="user_screen_name"/>
+      <searchProperties>
+        <rankingWeight>0.9</rankingWeight>
+        <freestyleSearch>false</freestyleSearch>
+        <fuzzinessThreshold>0.0</fuzzinessThreshold>
+      </searchProperties>
+      <keyMapping schemaName="MOVIE_RATING" columnObjectName="movieRating.data::movieRating.Tweets" columnName="user_screen_name"/>
+    </attribute>
+    <attribute id="user_profile_image_url" order="7" attributeHierarchyActive="false" displayAttribute="false">
+      <descriptions defaultDescription="user_profile_image_url"/>
+      <searchProperties>
+        <rankingWeight>0.9</rankingWeight>
+        <freestyleSearch>false</freestyleSearch>
+        <fuzzinessThreshold>0.0</fuzzinessThreshold>
+      </searchProperties>
+      <keyMapping schemaName="MOVIE_RATING" columnObjectName="movieRating.data::movieRating.Tweets" columnName="user_profile_image_url"/>
+    </attribute>
+    <attribute id="created_at" hidden="true" order="8" attributeHierarchyActive="false" displayAttribute="false">
+      <descriptions defaultDescription="created_at"/>
+      <keyMapping schemaName="MOVIE_RATING" columnObjectName="movieRating.data::movieRating.Tweets" columnName="created_at"/>
+    </attribute>
+    <attribute id="text" hidden="true" order="9" attributeHierarchyActive="false" displayAttribute="false">
+      <descriptions defaultDescription="text"/>
+      <searchProperties>
+        <rankingWeight>0.9</rankingWeight>
+        <freestyleSearch>false</freestyleSearch>
+        <fuzzinessThreshold>0.0</fuzzinessThreshold>
+      </searchProperties>
+      <keyMapping schemaName="MOVIE_RATING" columnObjectName="movieRating.data::movieRating.Tweets" columnName="text"/>
+    </attribute>
+    <attribute id="source" hidden="true" order="10" attributeHierarchyActive="false" displayAttribute="false">
+      <descriptions defaultDescription="source"/>
+      <keyMapping schemaName="MOVIE_RATING" columnObjectName="movieRating.data::movieRating.Tweets" columnName="source"/>
+    </attribute>
+    <attribute id="tweet_source" order="11" attributeHierarchyActive="false" displayAttribute="false">
+      <descriptions defaultDescription="tweet_source"/>
+      <searchProperties>
+        <rankingWeight>0.9</rankingWeight>
+        <freestyleSearch>true</freestyleSearch>
+        <fuzzinessThreshold>0.0</fuzzinessThreshold>
+      </searchProperties>
+      <keyMapping schemaName="MOVIE_RATING" columnObjectName="movieRating.data::movieRating.Tweets" columnName="source_str"/>
+    </attribute>
+    <attribute id="tweet_time_year" order="12" attributeHierarchyActive="false" displayAttribute="false">
+      <descriptions defaultDescription="tweet_time_year"/>
+      <searchProperties>
+        <rankingWeight>0.9</rankingWeight>
+        <freestyleSearch>true</freestyleSearch>
+        <fuzzinessThreshold>0.0</fuzzinessThreshold>
+      </searchProperties>
+      <keyMapping schemaName="MOVIE_RATING" columnObjectName="movieRating.data::movieRating.Tweets" columnName="created_at_year"/>
+    </attribute>
+    <attribute id="tweet_time_month" order="13" attributeHierarchyActive="false" displayAttribute="false">
+      <descriptions defaultDescription="tweet_time_month"/>
+      <searchProperties>
+        <rankingWeight>0.9</rankingWeight>
+        <freestyleSearch>true</freestyleSearch>
+        <fuzzinessThreshold>0.0</fuzzinessThreshold>
+      </searchProperties>
+      <keyMapping schemaName="MOVIE_RATING" columnObjectName="movieRating.data::movieRating.Tweets" columnName="created_at_month"/>
+    </attribute>
+    <attribute id="tweet_time_day" order="14" attributeHierarchyActive="false" displayAttribute="false">
+      <descriptions defaultDescription="tweet_time_day"/>
+      <searchProperties>
+        <rankingWeight>0.9</rankingWeight>
+        <freestyleSearch>true</freestyleSearch>
+        <fuzzinessThreshold>0.0</fuzzinessThreshold>
+      </searchProperties>
+      <keyMapping schemaName="MOVIE_RATING" columnObjectName="movieRating.data::movieRating.Tweets" columnName="created_at_day"/>
+    </attribute>
+    <attribute id="tweet_time_hour" order="15" attributeHierarchyActive="false" displayAttribute="false">
+      <descriptions defaultDescription="tweet_time_hour"/>
+      <searchProperties>
+        <rankingWeight>0.9</rankingWeight>
+        <freestyleSearch>true</freestyleSearch>
+        <fuzzinessThreshold>0.0</fuzzinessThreshold>
+      </searchProperties>
+      <keyMapping schemaName="MOVIE_RATING" columnObjectName="movieRating.data::movieRating.Tweets" columnName="created_at_hour"/>
+    </attribute>
+    <attribute id="tweet_time_week" order="16" attributeHierarchyActive="false" displayAttribute="false">
+      <descriptions defaultDescription="tweet_time_week"/>
+      <searchProperties>
+        <rankingWeight>0.9</rankingWeight>
+        <freestyleSearch>true</freestyleSearch>
+        <fuzzinessThreshold>0.0</fuzzinessThreshold>
+      </searchProperties>
+      <keyMapping schemaName="MOVIE_RATING" columnObjectName="movieRating.data::movieRating.Tweets" columnName="created_at_week"/>
+    </attribute>
+    <attribute id="movie_id" order="17" attributeHierarchyActive="false" displayAttribute="false">
+      <descriptions defaultDescription="movie_id"/>
+      <keyMapping schemaName="MOVIE_RATING" columnObjectName="movieRating.data::movieRating.Tweets" columnName="movie_id"/>
+    </attribute>
+    <attribute id="title" order="18" attributeHierarchyActive="false" displayAttribute="false">
+      <descriptions defaultDescription="title"/>
+      <searchProperties>
+        <rankingWeight>0.9</rankingWeight>
+        <freestyleSearch>true</freestyleSearch>
+        <fuzzinessThreshold>0.0</fuzzinessThreshold>
+      </searchProperties>
+      <keyMapping schemaName="MOVIE_RATING" columnObjectName="movieRating.data::movieRating.Movies" columnName="title"/>
+    </attribute>
+    <attribute id="mpaa_rating" order="19" attributeHierarchyActive="false" displayAttribute="false">
+      <descriptions defaultDescription="mpaa_rating"/>
+      <searchProperties>
+        <rankingWeight>0.9</rankingWeight>
+        <freestyleSearch>true</freestyleSearch>
+        <fuzzinessThreshold>0.0</fuzzinessThreshold>
+      </searchProperties>
+      <keyMapping schemaName="MOVIE_RATING" columnObjectName="movieRating.data::movieRating.Movies" columnName="mpaa_rating"/>
+    </attribute>
+    <attribute id="movie_year" order="20" attributeHierarchyActive="false" displayAttribute="false">
+      <descriptions defaultDescription="movie_year"/>
+      <searchProperties>
+        <rankingWeight>0.9</rankingWeight>
+        <freestyleSearch>true</freestyleSearch>
+        <fuzzinessThreshold>0.0</fuzzinessThreshold>
+      </searchProperties>
+      <keyMapping schemaName="MOVIE_RATING" columnObjectName="movieRating.data::movieRating.Movies" columnName="year_str"/>
+    </attribute>
+    <attribute id="runtime" order="21" attributeHierarchyActive="false" displayAttribute="false">
+      <descriptions defaultDescription="runtime"/>
+      <searchProperties>
+        <rankingWeight>0.9</rankingWeight>
+        <freestyleSearch>false</freestyleSearch>
+        <fuzzinessThreshold>0.0</fuzzinessThreshold>
+      </searchProperties>
+      <keyMapping schemaName="MOVIE_RATING" columnObjectName="movieRating.data::movieRating.Movies" columnName="runtime"/>
+    </attribute>
+    <attribute id="release_date" order="22" attributeHierarchyActive="false" displayAttribute="false">
+      <descriptions defaultDescription="release_date"/>
+      <keyMapping schemaName="MOVIE_RATING" columnObjectName="movieRating.data::movieRating.Movies" columnName="release_date"/>
+    </attribute>
+    <attribute id="poster" order="23" attributeHierarchyActive="false" displayAttribute="false">
+      <descriptions defaultDescription="poster"/>
+      <searchProperties>
+        <rankingWeight>0.9</rankingWeight>
+        <freestyleSearch>false</freestyleSearch>
+        <fuzzinessThreshold>0.0</fuzzinessThreshold>
+      </searchProperties>
+      <keyMapping schemaName="MOVIE_RATING" columnObjectName="movieRating.data::movieRating.Movies" columnName="poster"/>
+    </attribute>
+    <attribute id="studio" order="24" attributeHierarchyActive="false" displayAttribute="false">
+      <descriptions defaultDescription="studio"/>
+      <searchProperties>
+        <rankingWeight>0.9</rankingWeight>
+        <freestyleSearch>true</freestyleSearch>
+        <fuzzinessThreshold>0.0</fuzzinessThreshold>
+      </searchProperties>
+      <keyMapping schemaName="MOVIE_RATING" columnObjectName="movieRating.data::movieRating.Movies" columnName="studio"/>
+    </attribute>
+    <attribute id="synopsis" order="32" attributeHierarchyActive="false" displayAttribute="false">
+      <descriptions defaultDescription="synopsis"/>
+      <searchProperties>
+        <rankingWeight>0.9</rankingWeight>
+        <freestyleSearch>false</freestyleSearch>
+        <fuzzinessThreshold>0.0</fuzzinessThreshold>
+      </searchProperties>
+      <keyMapping schemaName="MOVIE_RATING" columnObjectName="movieRating.data::movieRating.Movies" columnName="synopsis"/>
+    </attribute>
+    <attribute id="release_date_year" order="33" attributeHierarchyActive="false" displayAttribute="false">
+      <descriptions defaultDescription="release_date_year"/>
+      <searchProperties>
+        <rankingWeight>0.9</rankingWeight>
+        <freestyleSearch>true</freestyleSearch>
+        <fuzzinessThreshold>0.0</fuzzinessThreshold>
+      </searchProperties>
+      <keyMapping schemaName="MOVIE_RATING" columnObjectName="movieRating.data::movieRating.Movies" columnName="release_date_year"/>
+    </attribute>
+    <attribute id="release_date_month" order="35" attributeHierarchyActive="false" displayAttribute="false">
+      <descriptions defaultDescription="release_date_month"/>
+      <searchProperties>
+        <rankingWeight>0.9</rankingWeight>
+        <freestyleSearch>true</freestyleSearch>
+        <fuzzinessThreshold>0.0</fuzzinessThreshold>
+      </searchProperties>
+      <keyMapping schemaName="MOVIE_RATING" columnObjectName="movieRating.data::movieRating.Movies" columnName="release_date_month"/>
+    </attribute>
+    <attribute id="release_date_day" order="36" attributeHierarchyActive="false" displayAttribute="false">
+      <descriptions defaultDescription="release_date_day"/>
+      <searchProperties>
+        <rankingWeight>0.9</rankingWeight>
+        <freestyleSearch>true</freestyleSearch>
+        <fuzzinessThreshold>0.0</fuzzinessThreshold>
+      </searchProperties>
+      <keyMapping schemaName="MOVIE_RATING" columnObjectName="movieRating.data::movieRating.Movies" columnName="release_date_day"/>
+    </attribute>
+    <attribute id="release_date_week" order="37" attributeHierarchyActive="false" displayAttribute="false">
+      <descriptions defaultDescription="release_date_week"/>
+      <searchProperties>
+        <rankingWeight>0.9</rankingWeight>
+        <freestyleSearch>true</freestyleSearch>
+        <fuzzinessThreshold>0.0</fuzzinessThreshold>
+      </searchProperties>
+      <keyMapping schemaName="MOVIE_RATING" columnObjectName="movieRating.data::movieRating.Movies" columnName="release_date_week"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes>
+    <calculatedAttribute id="id_counter" hidden="false" order="25" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+      <descriptions defaultDescription="id_counter"/>
+      <keyCalculation datatype="NVARCHAR" length="200">
+        <formula>&quot;id&quot; + '_' + string(&quot;TA_COUNTER&quot;)</formula>
+      </keyCalculation>
+    </calculatedAttribute>
+    <calculatedAttribute id="sent" hidden="false" order="26" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+      <descriptions defaultDescription="sent"/>
+      <keyCalculation datatype="NVARCHAR" length="20">
+        <formula>if(&quot;sentiment&quot; = 'StrongPositiveSentiment', 'Strong Positive', if(&quot;sentiment&quot; = 'WeakPositiveSentiment', 'Weak Positive', if(&quot;sentiment&quot; = 'NeutralSentiment', 'Neutral', if(&quot;sentiment&quot; = 'WeakNegativeSentiment', 'Weak Negative', 'Strong Negative'))))</formula>
+      </keyCalculation>
+    </calculatedAttribute>
+    <calculatedAttribute id="created_at_str" hidden="false" order="27" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+      <descriptions defaultDescription="created_at_str"/>
+      <keyCalculation datatype="NVARCHAR" length="20">
+        <formula>string(&quot;created_at&quot;)</formula>
+      </keyCalculation>
+    </calculatedAttribute>
+    <calculatedAttribute id="created_at_time_str" hidden="false" order="28" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+      <descriptions defaultDescription="created_at_time_str"/>
+      <keyCalculation datatype="NVARCHAR" length="20">
+        <formula>rightstr(&quot;created_at_str&quot;,14)</formula>
+      </keyCalculation>
+    </calculatedAttribute>
+    <calculatedAttribute id="source_url" hidden="false" order="29" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+      <descriptions defaultDescription="source_url"/>
+      <keyCalculation datatype="NVARCHAR" length="200">
+        <formula>leftstr(rightstr(&quot;source&quot;,strlen(&quot;source&quot;)-instr(&quot;source&quot;,'&quot;')),instr(rightstr(&quot;source&quot;,strlen(&quot;source&quot;)-instr(&quot;source&quot;,'&quot;')),'&quot;')-1)</formula>
+      </keyCalculation>
+    </calculatedAttribute>
+    <calculatedAttribute id="text_head" hidden="false" order="30" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+      <descriptions defaultDescription="text_head"/>
+      <keyCalculation datatype="NVARCHAR" length="200">
+        <formula>if(&quot;TA_OFFSET&quot;=0,'',leftstr(&quot;text&quot;,(int(&quot;TA_OFFSET&quot;)+1)-1))</formula>
+      </keyCalculation>
+    </calculatedAttribute>
+    <calculatedAttribute id="text_tail" hidden="false" order="31" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+      <descriptions defaultDescription="text_tail"/>
+      <keyCalculation datatype="NVARCHAR" length="200">
+        <formula>if((&quot;TA_OFFSET&quot;+1)+strlen(&quot;token&quot;)=strlen(&quot;text&quot;),'',rightstr(&quot;text&quot;,strlen(&quot;text&quot;)-(int(&quot;TA_OFFSET&quot;)+1)-strlen(&quot;token&quot;)+1))</formula>
+      </keyCalculation>
+    </calculatedAttribute>
+    <calculatedAttribute id="poster_pro" hidden="false" order="34" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+      <descriptions defaultDescription="poster_pro"/>
+      <keyCalculation datatype="NVARCHAR" length="200">
+        <formula>replace(&quot;poster&quot;,'tmb','pro')</formula>
+      </keyCalculation>
+    </calculatedAttribute>
+  </calculatedAttributes>
+  <privateDataFoundation>
+    <tableProxies>
+      <tableProxy>
+        <table schemaName="MOVIE_RATING" columnObjectName="$TA_TWEETS_I"/>
+        <columnFilter columnName="TA_TYPE">
+          <valueFilter xsi:type="AccessControl:ListValueFilter" operator="IN" including="true">
+            <operands value="NeutralSentiment"/>
+            <operands value="StrongNegativeSentiment"/>
+            <operands value="StrongPositiveSentiment"/>
+            <operands value="WeakNegativeSentiment"/>
+            <operands value="WeakPositiveSentiment"/>
+          </valueFilter>
+        </columnFilter>
+      </tableProxy>
+      <tableProxy>
+        <table schemaName="MOVIE_RATING" columnObjectName="movieRating.data::movieRating.Movies"/>
+      </tableProxy>
+      <tableProxy>
+        <table schemaName="MOVIE_RATING" columnObjectName="movieRating.data::movieRating.Tweets"/>
+      </tableProxy>
+    </tableProxies>
+    <joins>
+      <join>
+        <leftTable schemaName="MOVIE_RATING" columnObjectName="$TA_TWEETS_I"/>
+        <rightTable schemaName="MOVIE_RATING" columnObjectName="movieRating.data::movieRating.Tweets"/>
+        <leftColumns>
+          <columnName>id</columnName>
+        </leftColumns>
+        <rightColumns>
+          <columnName>id</columnName>
+        </rightColumns>
+        <properties joinOperator="Equal" joinType="referential"/>
+      </join>
+      <join>
+        <leftTable schemaName="MOVIE_RATING" columnObjectName="movieRating.data::movieRating.Tweets"/>
+        <rightTable schemaName="MOVIE_RATING" columnObjectName="movieRating.data::movieRating.Movies"/>
+        <leftColumns>
+          <columnName>movie_id</columnName>
+        </leftColumns>
+        <rightColumns>
+          <columnName>id</columnName>
+        </rightColumns>
+        <properties joinOperator="Equal" joinType="referential"/>
+      </join>
+    </joins>
+    <layout>
+      <shapes>
+        <shape modelObjectName="$TA_TWEETS_I" modelObjectNameSpace="MOVIE_RATING" modelObjectType="catalog">
+          <upperLeftCorner x="70" y="30"/>
+        </shape>
+        <shape modelObjectName="movieRating.data::movieRating.Movies" modelObjectNameSpace="MOVIE_RATING" modelObjectType="catalog">
+          <upperLeftCorner x="337" y="30"/>
+        </shape>
+        <shape modelObjectName="movieRating.data::movieRating.Tweets" modelObjectNameSpace="MOVIE_RATING" modelObjectType="catalog">
+          <upperLeftCorner x="121" y="351"/>
+        </shape>
+        <shape modelObjectName="DataFoundation" modelObjectNameSpace="DataFoundation" modelObjectType="repository">
+          <upperLeftCorner x="40" y="85"/>
+          <rectangleSize height="0" width="0"/>
+        </shape>
+      </shapes>
+    </layout>
+  </privateDataFoundation>
+  <hierarchies/>
+</Dimension:dimension>

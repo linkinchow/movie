@@ -1,0 +1,5 @@
+service namespace "movieRating.services" {
+"movieRating.models::AT_TWEETS" as "AT_TWEETS"
+with("movie_id", "user_screen_name", "user_profile_image_url", "sent", "created_at_str", "text", "id_counter")
+key ("id_counter")
+;}

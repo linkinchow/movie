@@ -1,0 +1,5 @@
+service namespace "movieRating.services" {
+"movieRating.models::CV_MOVIES" as "CV_MOVIES" 
+key generate local "GenID"
+parameters via entity "InputParams"
+;}

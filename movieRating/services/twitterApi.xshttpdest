@@ -1,0 +1,10 @@
+description = "twitter api";
+host = "api.twitter.com";
+port = 443;
+pathPrefix = "/1.1";
+useProxy = true;
+proxyHost = "<YOUR PROXY HOST>";
+proxyPort = <YOUR PROXY PORT>;
+authType = none;
+useSSL = true;
+timeout = 0;

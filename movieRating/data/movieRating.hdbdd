@@ -1,0 +1,60 @@
+namespace movieRating.data;
+
+@Schema: 'MOVIE_RATING'
+context movieRating {
+	
+	type SString : String(20);
+	type MString : String(200);
+	type LString : String(5000);
+	
+	@Catalog.tableType : #COLUMN
+	Entity Movies {
+		key id : Integer;
+		title : MString;
+		year : Integer;
+		mpaa_rating : SString;
+		runtime : SString;
+		release_date : LocalDate;
+		synopsis : LString;
+		poster : MString;
+		studio : MString;
+		hashtag : MString;
+		timestamp : UTCTimestamp;
+		since_id : SString;
+	};
+	
+	@Catalog.tableType : #COLUMN
+	@nokey
+	Entity Genres {
+		movie_id : Integer not null;
+		genre : MString not null;
+	};
+	
+	@Catalog.tableType : #COLUMN
+	@nokey
+	Entity AbridgedCast {
+		movie_id : Integer not null;
+		cast : MString not null;
+	};
+	
+	@Catalog.tableType : #COLUMN
+	@nokey
+	Entity AbridgedDirectors {
+		movie_id : Integer not null;
+		director : MString not null;
+	};
+	
+	@Catalog.tableType : #COLUMN
+	Entity Tweets {
+		key id : SString;
+		created_at : UTCDateTime;
+		text : MString;
+		source : MString;
+		user_screen_name : SString;
+		user_profile_image_url : MString;
+		longitude : Decimal(20, 17);
+		latitude : Decimal(20, 17);
+		movie_id : Integer;
+		timestamp : UTCTimestamp;
+	};
+};

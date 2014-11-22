@@ -1,0 +1,51 @@
+<span>
+	<div data-template class="tweet_small">
+    <table>
+        <tr>
+            <td>
+                <table class="tweet_small_header">
+                    <tr>
+                        <td>
+                            <div class="tweet_small_img">
+                                <img src="" data-src="{{user_profile_image_url.value}}"/>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td>
+            
+                            <table class="tweet_small_body" style="width:128px">
+                    <tr>
+                        <td>
+                            <div><span class="tweet_title_small" style="font-size:120%"><a href="https://twitter.com/{{user_screen_name.value}}" rel="nofollow">@{{user_screen_name.value}}</a></span></div>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td>
+            
+                            <table class="tweet_small_body">
+                    <tr>
+                        <td>
+                            <div><span style="font-weight:300;color:#000;font-size:120%;font-weight:bold"> {{created_at_time_str.value}} <span class="{{sentiment.value}} font_bold">mentioned</span> </span></div>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td>
+			        <table class="tweet_small_header">
+			        <tr>
+			            <td>
+			                <div class="movie_small_img">
+			                    <img src="" data-src="{{poster.value}}"/>
+			                </div>
+			            </td>
+			            </tr>
+			            </table>
+			            </td>
+         </tr>
+    </table>
+ </div>
+ <div data-template-fallback>Sorry, JavaScript required!</div>
+</span>

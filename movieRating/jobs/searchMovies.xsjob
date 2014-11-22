@@ -1,0 +1,10 @@
+{
+    "description": "Search movies",
+    "action": "movieRating.services:searchMovies.xsjs::searchMovies",
+    "schedules": [
+       {
+          "description": "00:00 every Tuesday (UTC)",
+          "xscron": "* * * tue 0 0 0"
+       }
+    ]
+}

@@ -1,0 +1,4 @@
+role movieRating.roles::Admin
+extends role movieRating.roles::User {
+	schema movieRating.data:MOVIE_RATING.hdbschema: INSERT, DELETE, UPDATE;
+}

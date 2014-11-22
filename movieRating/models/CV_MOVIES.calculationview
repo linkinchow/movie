@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" schemaVersion="2.2" id="CV_MOVIES" applyPrivilegeType="ANALYTIC_PRIVILEGE" checkAnalyticPrivileges="true" defaultClient="crossClient" defaultLanguage="$$language$$" visibility="internal" calculationScenarioType="SCRIPT_BASED" dataCategory="DEFAULT" enforceSqlExecution="false" executionSemantic="UNDEFINED" scriptParametersCaseSensitive="true">
+  <descriptions defaultDescription="CV_MOVIES"/>
+  <localVariables>
+    <variable id="date_from" parameter="true">
+      <descriptions defaultDescription="date_from"/>
+      <variableProperties datatype="DATE" mandatory="true">
+        <valueDomain type="Date"/>
+        <selection multiLine="false" type="SingleValue"/>
+      </variableProperties>
+    </variable>
+    <variable id="date_to" parameter="true">
+      <descriptions defaultDescription="date_to"/>
+      <variableProperties datatype="DATE" mandatory="true">
+        <valueDomain type="Date"/>
+        <selection multiLine="false" type="SingleValue"/>
+      </variableProperties>
+    </variable>
+  </localVariables>
+  <variableMappings/>
+  <dataSources/>
+  <calculationViews>
+    <calculationView xsi:type="Calculation:SqlScriptView" id="Script_View">
+      <viewAttributes>
+        <viewAttribute datatype="INTEGER" id="id"/>
+        <viewAttribute datatype="NVARCHAR" id="title" length="200"/>
+        <viewAttribute datatype="NVARCHAR" id="poster" length="200"/>
+        <viewAttribute datatype="NVARCHAR" id="release_date" length="20"/>
+        <viewAttribute datatype="INTEGER" id="mention"/>
+        <viewAttribute datatype="DECIMAL" id="rating" length="3" scale="1"/>
+      </viewAttributes>
+      <calculatedViewAttributes/>
+      <localVariable>#date_from</localVariable>
+      <localVariable>#date_to</localVariable>
+      <definition> 
+ /********* Begin Procedure Script ************/ 
+ BEGIN 
+ 	 var_out = SELECT &quot;movie_id&quot; &quot;id&quot;, &quot;title&quot;, &quot;poster&quot;, TO_NVARCHAR(&quot;release_date&quot;, 'YYYY-MM-DD') &quot;release_date&quot;, COUNT(1) &quot;mention&quot;, TO_DECIMAL(
+SUM(MAP(&quot;sentiment&quot;, 'StrongPositiveSentiment', 10, 'WeakPositiveSentiment', 8, 'NeutralSentiment', 6, 'WeakNegativeSentiment', 4, 'StrongNegativeSentiment', 2)) / COUNT(1)
+, 3, 1) &quot;rating&quot; FROM &quot;_SYS_BIC&quot;.&quot;movieRating.models/AT_TWEETS&quot; WHERE &quot;release_date&quot; BETWEEN :date_from AND :date_to
+GROUP BY &quot;movie_id&quot;, &quot;title&quot;, &quot;poster&quot;, TO_NVARCHAR(&quot;release_date&quot;, 'YYYY-MM-DD');
+
+END /********* End Procedure Script ************/</definition>
+    </calculationView>
+  </calculationViews>
+  <logicalModel id="Script_View">
+    <attributes>
+      <attribute id="id" order="1">
+        <descriptions defaultDescription="id"/>
+        <keyMapping columnObjectName="Script_View" columnName="id"/>
+      </attribute>
+      <attribute id="title" order="2">
+        <descriptions defaultDescription="title"/>
+        <keyMapping columnObjectName="Script_View" columnName="title"/>
+      </attribute>
+      <attribute id="poster" order="3">
+        <descriptions defaultDescription="poster"/>
+        <keyMapping columnObjectName="Script_View" columnName="poster"/>
+      </attribute>
+      <attribute id="release_date" order="4">
+        <descriptions defaultDescription="release_date"/>
+        <keyMapping columnObjectName="Script_View" columnName="release_date"/>
+      </attribute>
+      <attribute id="mention" order="5">
+        <descriptions defaultDescription="mention"/>
+        <keyMapping columnObjectName="Script_View" columnName="mention"/>
+      </attribute>
+      <attribute id="rating" order="6">
+        <descriptions defaultDescription="rating"/>
+        <keyMapping columnObjectName="Script_View" columnName="rating"/>
+      </attribute>
+    </attributes>
+    <calculatedAttributes/>
+    <privateDataFoundation>
+      <tableProxies/>
+      <joins/>
+      <layout>
+        <shapes/>
+      </layout>
+    </privateDataFoundation>
+    <baseMeasures/>
+    <calculatedMeasures/>
+    <restrictedMeasures/>
+    <localDimensions/>
+  </logicalModel>
+  <layout>
+    <shapes>
+      <shape modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+        <upperLeftCorner x="40" y="85"/>
+      </shape>
+    </shapes>
+  </layout>
+</Calculation:scenario>

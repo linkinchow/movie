@@ -1,0 +1,92 @@
+.tweet {
+    margin-left:3px;
+    margin-top:0;
+    margin-right:3px;
+    margin-bottom:0;
+    padding:0; 
+    text-align:left;
+    border-radius:6px;
+}
+
+.tweet:hover {
+    cursor:pointer;
+    background-color: #D4E4FB;   
+}
+
+.tweet_img{
+    background-color:transparent;
+}
+
+.tweet_img img { 
+    width:50px;
+    height:50px; 
+}
+
+.poster img { 
+    height:55px; 
+}
+
+.tweet_title {
+   color:#f0ab00; 
+   font-size:100%; 
+   font-weight:bold;
+   white-space:nowrap;
+   font-size:12px;
+   padding-left:5px;
+}
+
+.attributeName {
+   color:#999999; 
+   font-size:12px;
+}
+
+.attributeValue {
+   padding: 2px 5px;
+   	line-height:100%;
+   	font-size:12px;
+}
+
+.tweet_text{
+	color:#999999; 
+}
+
+.title_text{
+	color:#800080;
+}
+
+.margin_big{
+    margin-left:10px;    
+}
+
+.tweet_info{
+	margin-left:10px;
+	width:60px;
+}
+
+.tweet_content{
+	width:500px;
+}
+
+.font_bold{
+	font-weight:bold;
+}
+
+.StrongPositiveSentiment{
+	color:#008000;
+}
+
+.WeakPositiveSentiment{
+	color:#9ACD32;
+}
+
+.NeutralSentiemnt{
+	color:#FFD700;
+}
+
+.WeakNegativeSentiment{
+	color:#FF8C00;
+}
+
+.StrongNegativeSentiment{
+	color:#FF0000;
+}

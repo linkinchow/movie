@@ -1,0 +1,95 @@
+<span>
+<div data-template class="tweet_detail">
+	<table>
+		<tr>
+			<td class="title">Tweet Info</td>
+		</tr>
+		
+		<tr>
+			<td>
+				<table>
+					<tr>
+						<td style="width:140px">
+							<img src="" data-src="{{user_profile_image_url.value}}"/>
+						</td>
+						<td>
+							<table>
+								<tr>
+									<td class="attributeName_detail">Tweet handle:</td>
+									<td class="attributeValue_detail"><a href="https://twitter.com/{{user_screen_name.value}}" rel="nofollow">@{{user_screen_name.value}}</a></td>
+								</tr>
+								<tr>
+									<td class="attributeName_detail">Time:</td>
+									<td class="attributeValue_detail">{{created_at_str.value}}</td>
+								</tr>
+								<tr>
+									<td class="attributeName_detail">Source:</td>
+									<td class="attributeValue_detail"><a href="{{source_url.value}}" rel="nofollow">{{tweet_source.value}}</a></td>
+								</tr>
+								<tr>
+									<td class="attributeName_detail">Sentiment:</td>
+									<td class="attributeValue_detail"><span class="{{sentiment.value}} font_bold">{{sent.value}}</span></td>
+								</tr>
+								<tr>
+									<td class="attributeName_detail" valign="top">Tweet:</td>
+									<td class="attributeValue_detail">{{text_head.value}}<span class="{{sentiment.value}} font_bold">{{token.value}}</span>{{text_tail.value}}</td>
+								</tr>
+							</table>
+						</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		
+		<tr>
+			<td class="title">Mentioned Movie Info</td>
+		</tr>
+		
+		<tr>
+			<td>
+				<table>
+					<tr>
+						<td style="width:140px">
+							<img src="" data-src="{{poster_pro.value}}"/>
+						</td>
+						<td>
+							<table>
+								<tr>
+									<td class="attributeName_detail">Title:</td>
+									<td class="attributeValue_detail">{{title.value}}</td>
+								</tr>
+								<tr>
+									<td class="attributeName_detail">Year:</td>
+									<td class="attributeValue_detail">{{movie_year.value}}</td>
+								</tr>
+								<tr>
+									<td class="attributeName_detail">MPAA rating:</td>
+									<td class="attributeValue_detail">{{mpaa_rating.value}}</td>
+								</tr>
+								<tr>
+									<td class="attributeName_detail">Runtime:</td>
+									<td class="attributeValue_detail">{{runtime.value}} Min.</td>
+								</tr>
+								<tr>
+									<td class="attributeName_detail">Release date:</td>
+									<td class="attributeValue_detail">{{release_date.value}}</td>
+								</tr>
+								<tr>
+									<td class="attributeName_detail">Studio:</td>
+									<td class="attributeValue_detail">{{studio.value}}</td>
+								</tr>
+								<tr>
+									<td class="attributeName_detail" valign="top">Synopsis:</td>
+									<td class="attributeValue_detail">{{synopsis.value}}</td>
+								</tr>
+							</table>
+						</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		
+	</table>
+</div>
+<div data-template-fallback>Sorry, JavaScript required!</div>
+</span>
